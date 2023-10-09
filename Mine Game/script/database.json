@@ -1,0 +1,16 @@
+{
+    "1": {
+        "descricao": "Faça 10 flexões.",
+        "imagem": "flexoes.jpg",
+        "cor": "#ff5722",
+        "tipo": "Físico",
+        "dificuldade": "Difícil"
+    },
+    "2": {
+        "descricao": "Cante uma música em voz alta.",
+        "cor": "#4caf50",
+        "tipo": "Criativo",
+        "dificuldade": "Fácil"
+    }
+      /* JSON HERE */
+}

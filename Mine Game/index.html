@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Define a largura da viewport para o tamanho do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Liga o arquivo CSS externo para estilização -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Define o título da página -->
+    <title>Mini Game De Eletrônica</title>
+</head>
+<body>
+    <!-- Container de carregamento -->
+    <div class="loader-container">
+        <h2 class="loading-text">Carregando ...</h2>
+        <img class="loader" src="IMG/Carregamento.gif" alt="Carregando...">
+    </div>
+    <div class="container">
+        <!-- Título principal da página -->
+        <h1>Mini Game<img style="width: 8%;" src="IMG/controle.gif" alt="Um gif de um controle"></h1>
+        <!-- Botão para gerar desafio -->
+        <button id="gerar-btn" class="botao-3d">Gerar Desafio</button>
+        <!-- Div para exibir o desafio gerado -->
+        <div id="desafio"></div>
+        <!-- Quebra de linha para separar elementos -->
+        <br>
+        <!-- Botão para revelar a resposta (inicialmente oculto) -->
+        <button id="revelar-btn" style="display: none;">Revelar Resposta</button>
+        <!-- Div para exibir a resposta (inicialmente oculta) -->
+        <div id="resposta" style="display: none;"></div>
+        <!-- Div para exibir o histórico de ações ou resultados -->
+        <div id="historico"></div>
+    </div>
+    <!-- Liga o arquivo JavaScript externo para funcionalidade -->
+    <script src="script/script.js"></script>
+</body>
+</html>

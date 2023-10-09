@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Carregamento</title>
+    <style>
+        /* Estilize o container de carregamento */
+        .loader-container {
+            justify-content: center;
+            text-align: center; /* Centralize o texto horizontalmente */
+            align-items: center;
+            height: 500%;
+            opacity: 0; /* Comece com a opacidade em 0 para esconder a imagem */
+            transition: opacity 0.5s ease-in-out; /* Adicione uma transição suave */
+        }
+        
+        /* Estilize o GIF de carregamento */
+        .loader {
+            width: 90%; /* Ajuste o tamanho conforme necessário */
+        }
+
+        /* Estilize o texto de carregamento */
+        .loading-text {
+            font-size: 30px; /* Tamanho da fonte */
+            text-align: center; /* Centralize o texto horizontalmente */
+            color: #fe5900e5; /* Cor do texto */
+            text-transform: uppercase; /* Transforme o texto em maiúsculas */
+            font-weight: bold; /* Fonte em negrito */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container de carregamento -->
+    <div class="loader-container">
+        <h2 class="loading-text">Carregando ...</h2>
+        <img class="loader" src="seu-gif-de-carregamento.gif" alt="Carregando...">
+    </div>
+
+    <!-- Aqui você pode incluir o conteúdo principal da sua página, que será exibido após o carregamento -->
+    
+    <script>
+        // Simule um atraso de carregamento (apenas para fins de demonstração)
+        setTimeout(function() {
+            // Gradualmente aumente a opacidade para mostrar a imagem (entrada)
+            var loaderContainer = document.querySelector('.loader-container');
+            loaderContainer.style.opacity = '1';
+            
+            // Você pode adicionar seu código JavaScript para o conteúdo principal aqui
+        }, 800); // Tempo de entrada (0,9 segundos)
+
+        // Após um tempo definido, oculte a imagem com uma transição suave na saída
+        setTimeout(function() {
+            var loaderContainer = document.querySelector('.loader-container');
+            loaderContainer.style.opacity = '0'; // Gradualmente diminui a opacidade (saída)
+            
+            // Aguarde um pouco antes de remover o elemento de carregamento
+            setTimeout(function() {
+                loaderContainer.style.display = 'none';
+            }, 800); // Tempo de saída (0,5 segundos) após a imagem ficar invisível
+        }, 2000); // Tempo de exibição da imagem (2 segundos)
+    </script>
+</body>
+</html>

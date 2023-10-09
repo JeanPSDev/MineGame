@@ -1,0 +1,124 @@
+/* Estilo geral para o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a família de fontes */
+    background-color: #f0f0f0; /* Define a cor de fundo */
+    text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+/* Estiliza o contêiner principal da página */
+.container {
+    max-width: 600px; /* Define a largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+    padding: 20px; /* Adiciona espaço interno */
+    background-color: #fff; /* Define a cor de fundo */
+    border-radius: 10px; /* Arredonda as bordas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+/* Estiliza o título principal da página */
+h1 {
+    color: #007bff; /* Define a cor do texto */
+}
+
+/* Estilize o container de carregamento com GIF */
+.loader-container {
+    justify-content: center;
+    text-align: center; /* Centralize o texto horizontalmente */
+    align-items: center;
+    height: 500%;
+    opacity: 0; /* Comece com a opacidade em 0 para esconder a imagem */
+    transition: opacity 0.5s ease-in-out; /* Adicione uma transição suave */
+}
+
+/* Estilize o GIF de carregamento */
+.loader {
+    width: 90%; /* Ajuste o tamanho conforme necessário */
+}
+
+/* Estilize o texto de carregamento com GIF */
+.loading-text {
+    font-size: 30px; /* Tamanho da fonte */
+    text-align: center; /* Centralize o texto horizontalmente */
+    color: #fe5900e5; /* Cor do texto */
+    text-transform: uppercase; /* Transforme o texto em maiúsculas */
+    font-weight: bold; /* Fonte em negrito */
+}
+
+/* Estiliza os botõe 3D*/
+.botao-3d {
+    position:relative;
+    width: auto;
+    display:inline-block;
+    color:#ecf0f1;
+    text-decoration:none;
+    border-radius:5px;
+    border:solid 1px #f39c12;
+    background:#e67e22;
+    text-align:center;
+    padding:16px 18px 14px;
+    margin: 12px;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s; 
+    -webkit-box-shadow: 0px 6px 0px #d35400;
+    -moz-box-shadow: 0px 6px 0px #d35400;
+    box-shadow: 0px 6px 0px #d35400;
+  }
+  
+  .botao-3d:active{
+      -webkit-box-shadow: 0px 2px 0px #d35400;
+      -moz-box-shadow: 0px 2px 0px #d35400;
+      box-shadow: 0px 2px 0px #d35400;
+      position:relative;
+      top:4px;
+  }
+
+/* Estiliza os botões */
+button {
+    padding: 10px 20px; /* Define o preenchimento */
+    background-color: #ff5722; /* Define a cor de fundo */
+    color: #fff; /* Define a cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Arredonda as bordas */
+    cursor: pointer; /* Altera o cursor ao passar o mouse */
+    transition: background-color 0.3s ease; /* Adiciona um efeito de transição suave */
+}
+
+/* Efeito de hover para os botões */
+button:hover {
+    background-color: #ff7043; /* Altera a cor de fundo no hover */
+}
+
+/* Estiliza a div que exibe o desafio */
+#desafio {
+    margin-top: 20px; /* Adiciona margem superior */
+    font-size: 18px; /* Define o tamanho da fonte */
+    color: #333; /* Define a cor do texto */
+    border: 2px solid transparent; /* Define uma borda transparente */
+    border-radius: 10px; /* Arredonda as bordas */
+}
+
+/* Estiliza a div que exibe a resposta */
+#resposta {
+    margin-top: 20px; /* Adiciona margem superior */
+    font-size: 18px; /* Define o tamanho da fonte */
+    color: #c81a1a; /* Define a cor do texto */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+}
+
+/* Estiliza o histórico de ações ou resultados */
+#historico {
+    margin-top: 20px; /* Adiciona margem superior */
+    font-style: italic; /* Define estilo itálico */
+    color: #6a6969; /* Define a cor do histórico */
+}
+
+/* Estiliza a imagem do desafio */
+.imagem-desafio {
+    max-width: 100%; /* Define a largura máxima da imagem */
+}
+
+/* Estiliza a descrição da cor do desafio */
+.cor-desafio {
+    font-weight: bold; /* Define o peso da fonte como negrito */
+}
