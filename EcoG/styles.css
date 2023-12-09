@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* Estilos gerais do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ebeece;
+}
+
+/* Estilize o container de carregamento GIF*/
+.loader-container {
+    background-color: #222222;
+    justify-content: center;
+    text-align: center; /* Centralize o texto horizontalmente */
+    align-items: center;
+    opacity: 0; /* Comece com a opacidade em 0 para esconder a imagem */
+    transition: opacity 0.5s ease-in-out; /* Adicione uma transição suave */
+}
+
+/* Estilize o GIF de carregamento */
+.loader {
+    width: 100%; /* Ajuste o tamanho conforme necessário */
+    height: 80%;
+}
+
+/* Estilos do contêiner principal */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    border: #859337;
+    box-shadow: 0px 0px 10px 0px #859337;
+    text-align: center;
+}
+
+/* Estilos para elementos de entrada de texto */
+input {
+    width: 94%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #859337;
+    border-radius: 3px;
+}
+
+/* Estilos para botões */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #76861f;
+    font-family: 'Chewy', sans-serif; /*Fonte Chewy Baixada*/
+    font-size: 150%;
+    color: #222222;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Estilos para links */
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* Estilos para links ao passar o mouse */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos adicionais podem ser adicionados aqui */
+
+/* Estilos para a mensagem de boas-vindas após o login */
+#mensagem {
+    display: none;
+    color: #141414;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+
+/* Estilos para o perfil do usuário após o login */
+#perfil-usuario {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para os botões de ação após o login */
+#botoes-acao {
+    display: none;
+    margin-top: 20px;
+}
+
+.btnc{
+    width: 30%;
+    margin: 15px
+}

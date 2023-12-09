@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Icone da página -->
+    <link rel="icon" href="IMG/icon EcoG.png">
+    <!-- Título da página -->
+    <title>EcoG</title>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Link para o arquivo CSS Do Termo-->
+    <link rel="stylesheet" type="text/css" href="termo/Termo.css">
+    <!-- Link para o arquivo CSS Do Avatar-->
+    <link rel="stylesheet" type="text/css" href="Avatar/Avatar.css">
+    <!-- Link para o arquivo CSS Das Missoes-->
+    <link rel="stylesheet" type="text/css" href="Missoes.css">
+    <!-- Link para o arquivo CSS Do Perfil-->
+    <link rel="stylesheet" type="text/css" href="Perfil.css">
+    <!-- Link para o arquivo CSS para fixar responsivo-->
+    <link rel="stylesheet" type="text/css" href="responsivo.css">
+    <!-- Link para o arquivo CSS Do Biblioteca sweetalert2 de Alerts Fofos-->
+    <link rel="stylesheet" type="text/css" href="sweetalert2/sweetalert2.css">
+</head>
+
+<body>
+    <!-- Container de carregamento A tela de carregamento-->
+    <div class="loader-container">
+        <div style="height: 810px;">
+            <img class="loader" src="Carregamento.gif" alt="Carregando...">
+        </div>
+    </div>
+
+    <!-- Aparecer o Termo -->
+    <div class="modal-termo" id="myModal-Termo">
+        <div class="modal-content-termo">
+            <img class="termo" src="termo/Termo.png">
+            <label class="custom-checkbox">
+                <input type="checkbox" id="myCheckbox">
+
+                <span class="checkmark"></span>
+                <p style="font-family: ABeeZee; color: #222222; margin-top: 1px;">Li e aceito os termos</p>
+            </label>
+        </div>
+    </div>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Título principal -->
+        <img src="IMG/grupo tcc.png" id="iconDoTGI" style="height: 80px; text-align: center; ">
+
+        <h1 id="login" style="font-family: Chewy; color: #222222; font-size: 300%; ">Login</h1>
+        <h1 id="Cadastro" style="display: none; font-family: Chewy; color: #222222">Cadastro</h1>
+
+        <!-- tela de login -->
+        <div id="login-form">
+            <!-- Campo de email -->
+            <input type="text" id="email" placeholder="E-mail">
+            <!-- Campo de senha -->
+            <input type="password" id="senha" placeholder="Senha">
+            <!-- Botão de login -->
+            <button onclick="fazerLogin()">Acessar</button>
+            <!-- Botão de mostrar cadastro -->
+            <button onclick="mostrarCadastro()">Fazer Cadastro</button>
+            <!-- Link para esquecer senha -->
+            <p><a href="#" onclick="esquecerSenha()" style="font-family: AbeeZee; color: #222222">Esqueci minha
+                    senha</a></p>
+        </div>
+
+        <!-- tela de cadastro-->
+        <div id="cadastro-form" style="display: none;">
+            <!-- Campo de nome -->
+            <input type="text" id="nome" placeholder="Nome">
+            <!-- Campo de sobrenome -->
+            <input type="text" id="sobrenome" placeholder="Sobrenome">
+            <!-- Campo de email para cadastro -->
+            <input type="text" id="cadastro-email" placeholder="E-mail">
+            <!-- Campo de senha para cadastro -->
+            <input type="password" id="cadastro-senha" placeholder="Senha">
+            <!-- Botão de cadastro -->
+            <button onclick="criarCadastro()">Cadastrar</button>
+            <!-- Mensagem de preenchimento obrigatório -->
+            <p style="font-family: AbeeZee; color: #dc3545">Preencha todos os Campos</p>
+            <br>
+        </div>
+
+        <!-- tela perfil do usuário-->
+        <div id="TodasINFORMACAO" style="display: none;">
+
+            <article class="caixa1"><br>
+                <img src="IMG/grupo tcc.png" id="iconDoTGI" style="height: 100px; text-align: center;">
+                <br>Bem-vindo ao EcoG
+                <br>o seu app de reciclagem.
+                <br>Pelo planeta!
+            </article>
+            <!-- Div para exibir mensagens (inicialmente oculta) -->
+            <div id="mensagem" style="display: none;"></div>
+
+
+            <article class="caixa2">
+                <h1 style="font-size: 120%; font-family: 'ABeeZee', sans-serif; /*Fonte ABeeZee Baixada*/"><b>Perfil</b>
+                </h1>
+                <img id="imagePelePerfil" src="Avatar/reconhecimento-facial.png" style="width: 120px; margin-top: auto;"
+                    alt="Avatar">
+                <article class="CaixaPerfil">
+                    Nome:&nbsp;<span id="Nome1" style="font-size: 14px;"></span> &nbsp; <span id="nivel"
+                        style="font-size: 14px;">Nível: <span id="nivelAtual">0</span> &nbsp; <img src="IMG/premio.png"
+                            style="margin-top: 1px; width: 14px;"></span>
+                    <br>
+                </article>
+            </article>
+
+            <article class="caixa3">
+                <!--? Botão Das Missoes -->
+                <button id="mostrarModal-missoes" style="width: 80px; font-size:   90%;">Missões </button>
+                <button id="mostrarModal-loja" style="width: 80px; font-size:   90%;">Loja </button>
+                <button id="mostrarModal-Ranking" style="width: 80px; font-size:   90%;">Ranking </button>
+                <button id="mostrarModal-Mercados" style="width: 80px; font-size:   90%;">Parceiros </button>
+                <button id="abrirModal" style="width: 165px; font-size: 100%;">Editar Perfil</button>
+                <button id="mostrarModal-Finalizar" style="width: 165px; font-size: 100%;">Finalizar Protopipo</button>
+            </article>
+
+            <article class="caixa4">
+                <p></p>
+                informações do Usuario:
+                <p>Nome:&nbsp;<span id="Nome2"></span>&nbsp;<span id="sobrenome1"></span></p>
+                <p>Email:&nbsp;<span id="email1"></span></p>
+                <p id="pontuacao">Pontuação: <span id="pontos">0</span> pontos</p>
+                <p id="experiencia">Experiência: <span id="xp">0</span> XP</p>
+                <p id="nivel">Nivel: <span id="nivelAtual">0</span></p><br>
+                <p></p>
+            </article>
+            <button onclick="logout()" style="background-color: #dc3545;">Sair</button>
+            <div id="perfil-usuario"></div>
+            <h1 id="PerfilUsuario" style="display: none;"></h1>
+            <!-- Botão de logout Sair Da Conta-->
+        </div>
+
+        <!--modal do avatar-->
+        <div id="meuModal" class="modal-Avatar">
+            <div class="modal-conteudo">
+                <span id="fecharModal" class="fechar" style="color: #dc3545;">X</span><br>
+                <div class="image-container-Avatar">
+                    <img id="imagePele" src="Avatar/reconhecimento-facial.png" style="width: 150px;" alt="Avatar">
+                </div>
+                <p id="mensagem1">Olá seja bem vindo ao seletor de avatar.
+                    <br> Aqui você pode mudar o seu avatar para outros que
+                    <br> você já conquistou em missões passadas
+                    <br> Aproveite!
+                </p>
+                <p id="mensagem2" style="display: none;">Novo avatar selecionado</p>
+                <button onclick="MudarAvatar()" id="BotaoParaMudarAvatar">Trocar avatar</button>
+                <div class="color-buttons" id="MudarAvatares" style="display: none;">
+                    <button class="color-button" style="width: 130px; background-color: rgb(20, 167, 204);"
+                        Avatar="Homen">Homen</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(218, 70, 173);"
+                        Avatar="Mulher">Mulher</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(223, 125, 14);"
+                        Avatar="Geek">Geek</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(77, 50, 21);"
+                        Avatar="Gatinho">Gatinho</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(250, 172, 89);"
+                        Avatar="Kenny">Kenny</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(100, 100, 100);"
+                        Avatar="vovo">Vovô</button><br><br>
+                    <button class="color-button" style="width: 130px; background-color: rgb(255, 41, 41);"
+                        Avatar="eric">Eric</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(255, 213, 150);"
+                        Avatar="jovem">Jovem</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(102, 247, 58);"
+                        Avatar="dancarina">Dancarina</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(33, 236, 94);"
+                        Avatar="creeper">Creeper</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(216, 228, 47);"
+                        Avatar="radioativo">Radioativo</button>
+                    <button class="color-button" style="width: 130px; background-color: rgb(219, 10, 150);"
+                        Avatar="aldeao">Aldeao</button>
+                    <br>
+                    <!--DESBLOQUEADOS-->
+                    <button class="color-button" id="AvatarDeMago"
+                        style="width: 130px; background-color: rgb(21, 40, 212); display: none;"
+                        Avatar="Mago">Mago</button>
+                    <button class="color-button" id="AvatarDaMaeNatureza"
+                        style="width: 130px; background-color: rgb(40, 133, 82); display: none;"
+                        Avatar="MaeNatureza">Mãe Natureza</button>
+
+                    <br><button onclick="FizalizouaEdicao()" style="width: 180px;">Pronto</button>
+                </div>
+                <!--<button onclick="DesbloquearMago()">Desbloquear o a avatar de mago</button>-->
+                <button onclick="DesbloquearMaeNatureza()" style="display: none;">Desbloquear o avatar da Mãe
+                    Natureza</button>
+            </div>
+        </div>
+
+        <!-- Div para botões de ação -->
+        <div id="botoes-acao"></div>
+
+
+        <!--Missoes---------->
+        <div id="meuModal-missoes" class="modal-missoes">
+            <div class="modal-conteudo-missoes">
+                <span id="fecharModal-missoes" class="fechar-missoes" style="color: #dc3545;">X</span>
+                <p>
+                <article id="Missao1_Mostra" class="CaixaDeMissoes">
+                    <p>1ª Missão</p>
+                    <input type="file" id="fileInput">
+                    <button onclick="Missao1()" class="botao-3d">Verificar</button>
+                    <p id="resultado"></p>
+                    <img src="IMG/up-arrow.png" style="width: 20px;"> 35
+                    <img src="IMG/premio.png" style="width: 20px;"> 50 XP
+                </article>
+
+                <img src="ProximaMissao.png" style="width: 50px; text-align: center;">
+
+                <article id="Missao2_Mostra" class="CaixaDeMissoes">
+                    <p>Missao2</p>
+                    <input type="file" id="fileInput2">
+                    <button onclick="Missao2()" class="botao-3d">Verificar</button>
+                    <p id="resultado2"></p>
+                    <img src="IMG/up-arrow.png" style="width: 20px;"> 5
+                    <img src="IMG/premio.png" style="width: 20px;"> XP
+                </article>
+
+                <br>
+
+                <article id="Missao3_Mostra" style="display: none;" class="CaixaDeMissoes">
+                    <p>Missao3</p>
+                    <!-- Perguntas e respostas -->
+                    <p>Pergunta 1: Você gosta de programação?</p>
+                    <input type="radio" id="resposta1_sim" name="resposta1" value="sim"> Sim
+                    <input type="radio" id="resposta1_nao" name="resposta1" value="nao"> Não
+                    <br>
+
+                    <p>Pergunta 2: Você gosta de aprender coisas novas?</p>
+                    <input type="radio" id="resposta2_sim" name="resposta2" value="sim"> Sim
+                    <input type="radio" id="resposta2_nao" name="resposta2" value="nao"> Não
+                    <br>
+
+                    <p>Pergunta 3: Você está disposto a desafios?</p>
+                    <input type="radio" id="resposta3_sim" name="resposta3" value="sim"> Sim
+                    <input type="radio" id="resposta3_nao" name="resposta3" value="nao"> Não
+                    <br>
+
+                    <button onclick="Missao3()">Verificar Respostas</button>
+                    <p id="resultado3"></p>
+                    ......
+                </article>
+
+                <article id="Missao4_Mostra" style="display: none;">
+                    <p>Missao4</p>
+                    <!-- Missao 4 -->
+                    MISSÂO !!!!
+                    ......
+                </article>
+
+                <article id="Missao5_Mostra" style="display: none;">
+                    <p>Missao5</p>
+                    <!-- Missao 5 -->
+                    MISSÂO !!!!
+                    ......
+                </article>
+
+                <article id="Missao6_Mostra" style="display: none;">
+                    <p>Missao6</p>
+                    <!-- Missao 6 -->
+                    MISSÂO !!!!
+                    ......
+                </article>
+
+
+
+                </p>
+            </div>
+        </div>
+        <!------------>
+
+        <!--Loja---------->
+        <div id="meuModal-loja" class="modal-loja">
+            <div class="modal-conteudo-loja">
+                <span id="fecharModal-loja" class="fechar-loja">X</span>
+                <div class="btnc">
+                    <img src="Avatar/Perfil5.png" width="150px">
+                    <button onclick="comprarRoupinha()">Compra Mago</button>
+                </div>
+                <div class="btnc">
+                    <img src="Avatar/Perfil6.png" width="150px">
+                    <button onclick="comprarRoupinha()">Compra Mãe Natureza</button>
+                </div>
+                <div class="btnc">
+                    <img src="Avatar/Perfil15.png" width="150px">
+                    <button onclick="comprarRoupinha()">Compra Boneco de Neve</button>
+                </div>
+            </div>
+            <div style="background-color: #859337; width:50%; margin: 0 auto;">
+                <p id="resultado1"></p>
+            </div>
+        </div>
+        <!------------>
+
+        <!--Ranking---------->
+        <div id="meuModal-Ranking" class="modal-Ranking">
+            <div class="modal-conteudo-Ranking">
+                <span id="fecharModal-Ranking" class="fechar-Ranking" style="color: #dc3545;">X</span>
+
+                <p id="resultado1">Ranking</p>
+
+                <style type="text/css">
+                    .caixaRanking {
+                        background-color: #859337;
+                        box-shadow: 1px 2px grey;
+                    }
+                </style>
+                <article class="caixaRanking">1° &nbsp;<img src="Avatar/Perfil2.png" style="width: 25px;"> &nbsp; Ana
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 80 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">2° &nbsp;<img src="Avatar/Perfil1.png" style="width: 25px;"> &nbsp; Roger
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 65 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">3° &nbsp;<img src="Avatar/Perfil5.png" style="width: 25px;"> &nbsp; Jorge
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 45 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">4° &nbsp;<img src="Avatar/Perfil4.png" style="width: 25px;"> &nbsp; Carla
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">5° &nbsp;<img src="Avatar/reconhecimento-facial.png" style="width: 25px;">
+                    &nbsp; Billy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">6° &nbsp;<img src="Avatar/reconhecimento-facial.png" style="width: 25px;">
+                    &nbsp; ****** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">7° &nbsp;<img src="Avatar/reconhecimento-facial.png" style="width: 25px;">
+                    &nbsp; ****** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+                <article class="caixaRanking">8° &nbsp;<img src="Avatar/reconhecimento-facial.png" style="width: 25px;">
+                    &nbsp; ****** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp; Pontos &nbsp;<img src="IMG/trofeu.png"
+                        style="width: 25px;"></article><br>
+
+            </div>
+        </div>
+        <!------------>
+
+        <!--Mercados parceiros---------->
+        <div id="meuModal-Mercados" class="modal-Mercados">
+            <div class="modal-conteudo-Mercados">
+                <span id="fecharModal-Mercados" class="fechar-Mercados" style="color: #dc3545;">X</span>
+
+                <p id="resultado1">Esses são mercados que temos parcerias até o momento</p>
+                <p id="resultado1">Aqui você poderá trocar pontos por descontos e promoções em Estabelecimentos parceiros</p>
+
+<div style="text-align: center;">
+    <img src="IMG/bar.png" style="width: 60px;">&nbsp;&nbsp;&nbsp;Bar da Alisiane Endereço: Rua conceiçao la- 244, itaquaquecetuba - cep
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="IMG/mercearias.png" style="width: 60px;">&nbsp;&nbsp;&nbsp;Hortifurt Endereço: Rua conceiçao la- 244, itaquaquecetuba - cep
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="IMG/localizacao.png" style="width: 60px;">&nbsp;&nbsp;&nbsp;Loja Parceira Endereço: ***
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="IMG/localizacao.png" style="width: 60px;">&nbsp;&nbsp;&nbsp;Loja Parceira Endereço: ***
+</div>
+<br>
+<div style="text-align: center;">
+    <img src="IMG/localizacao.png" style="width: 60px;">&nbsp;&nbsp;&nbsp;Loja Parceira Endereço: ***
+</div>
+
+            </div>
+        </div>
+        <!------------>
+
+        <!--Finalizar Prototipo---------->
+        <div id="meuModal-Finalizar" class="modal-Finalizar">
+            <div class="modal-conteudo-Finalizar">
+                <span id="fecharModal-Finalizar" class="fechar-Finalizar" style="color: #dc3545;">X</span>
+<img src="IMG/fim.png" style="width: 60px;">
+                <p id="resultado1">Muito obrigado por ter utilizado o nosso protótipo até aqui ao clicar no botão finalizar sua conta os dados será deletada</p>
+
+<button style="width: 165px; font-size: 100%; background-color: #d86b1b;">Finalizar o teste</button>
+
+
+
+                <!-- Botão para resetar cadastros (inicialmente oculto) -->
+                <button style="background-color: #dc3545; display: none;" id="reset-button"
+                    onclick="resetarCadastro()">Resetar Cadastros</button>
+                <button style="background-color: #dc3545; display: none;" onclick="ResetarEdicoes()">Resetar Edições DO
+                    Avatar</button>
+                <button style="background-color: #dc3545; display: none;" onclick="resetarTudo()">Resetar a
+                    loja</button>
+            </div>
+        </div>
+        <!------------>
+
+    </div>
+
+
+    </div>
+
+    <footer type="text/JavaScript">
+        <!-- Inclusão do arquivo JavaScript -->
+        <script type="text/JavaScript" src="script.js"></script>
+        <!-- Inclusão do arquivo JavaScript Do Termo-->
+        <script type="text/JavaScript" src="termo/Termo.js"></script>
+        <!-- Inclusão do arquivo JavaScript Do Avatar-->
+        <script type="text/JavaScript" src="Avatar/Avatar.js"></script>
+        <!-- Inclusão do arquivo JavaScript Das Missoes e Loja-->
+        <script type="text/JavaScript" src="MissoesLoja.js"></script>
+        <!-- Link para o arquivo JavaScript Do Biblioteca sweetalert2 de Alerts Fofos-->
+        <script type="text/JavaScript" src="sweetalert2/sweetalert2.js"></script>
+    </footer>
+
+</body>
+
+</html>
